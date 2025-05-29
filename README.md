@@ -31,6 +31,13 @@ This platform investigates whether **scientific literature trends** can help **p
 
 ## Installation
 
+### Prerequisites
+
+- Docker
+- Git
+- Python 3.10+ (for local development)
+- MySQL 8.0+ (optional for local database)
+
 Follow the steps of Option 1 if interested in only seeing the interactive web application based on the features already uploaded to the SQL server. Follow the steps of Option 2 if interested in collecting, processing, and uploading the features.
 
 ### Option 1: Docker Deployment
@@ -80,6 +87,20 @@ Follow the steps of Option 1 if interested in only seeing the interactive web ap
    ```bash
    streamlit run main.py
    ```
+
+## Analysis Metrics
+
+### Field Growth Metrics
+- Number of publications per field
+- Unique authors count
+- Diversity factor (cross-disciplinary collaboration)
+
+### Topic Growth Metrics
+- Monthly averages of top 3 latent topics (topics were generated using Latent Dirichlet Allocation (LDA))
+
+### Market Analysis
+- ETF price movements for 5 major sectors
+- Monthly percentage changes
 
 ## Usage
 
