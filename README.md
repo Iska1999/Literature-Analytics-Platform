@@ -1,8 +1,10 @@
 # Literature-Analytics-Platform
 
-This project investigates whether **scientific literature trends** can help **predict short-term stock price movements** in specific market sectors.
+A basic analytical platform that explores correlations between scientific literature trends and stock market movements using time series analysis.
 
-Using data from **arXiv** and **Yahoo Finance**, we process and model monthly metrics with (a) **Vector Autoregression (VAR)** and (b) **Bayesian Structural Time Series (BSTS)** frameworks to explore interactions between scientific literature trends and short-term stock price movements.
+## Overview
+
+This platform investigates whether **scientific literature trends** can help **predict short-term stock price movements** in specific market sectors. By analyzing publication patterns from arXiv alongside market data from Yahoo Finance, we apply Vector Autoregression (VAR) and Bayesian Structural Time Series (BSTS) models to uncover potential predictive relationships.
 
 ---
 
