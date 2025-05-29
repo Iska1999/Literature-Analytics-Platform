@@ -8,57 +8,121 @@ Using data from **arXiv** and **Yahoo Finance**, we process and model monthly me
 
 ## Contents
 
-[`data_collection/`](data_collection): Contains the scripts to scrape the meta- and marketdata, each in separate folders.
+- [`data_collection/`](data_collection): Contains the scripts to scrape the meta- and marketdata, each in separate folders.
 
-[`pages/`](pages): Contains Python scripts for the Streamlit application pages.
+- [`pages/`](pages): Contains Python scripts for the Streamlit application pages.
 
-[`processing/`](processing): Contains the Python script to process the metadata and extract the required features for analysis.
+- [`processing/`](processing): Contains the Python script to process the metadata and extract the required features for analysis.
 
-[`sample_data/`](sample_data): Contains sample processed meta- and market data collected up to 05/22/2025.
+- [`sample_data/`](sample_data): Contains sample processed meta- and market data collected up to 05/22/2025.
 
-[`utils/`](utils): Contains utility functions used by the scripts.
+- [`utils/`](utils): Contains utility functions used by the scripts.
 
-[`main.py`](main.py): The main page for the Streamlit application.
+- [`main.py`](main.py): The main page for the Streamlit application.
+  
+- [`config.py`](config.py): The Python file with configuration management information.
 
-[`dockerfile`](dockerfile): The dockerfile to run the application on a docker platform.
+- [`dockerfile`](dockerfile): The dockerfile to run the application on a docker platform.
 
-[`requirements.txt`](requirements.txt): The prerequisites necessary to run the interactive web application and processing functions.
+- [`requirements.txt`](requirements.txt): The prerequisites necessary to run the interactive web application and processing functions.
+
 
 ## Installation
 
-Accessing the interactive web application requires two steps: 
+Follow the steps of Option 1 if interested in only seeing the interactive web application based on the features already uploaded to the SQL server. Follow the steps of Option 2 if interested in collecting, processing, and uploading the features.
 
-### 1. Clone the repository
+### Option 1: Docker Deployment
 
-Open your terminal (Command Prompt, PowerShell, or terminal app) and run:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Iska1999/Literature-Analytics-Platform.git
+   cd Literature-Analytics-Platform
+   ```
 
-```shell
-git clone https://github.com/Iska1999/Literature-Analytics-Platform.git
-```
-Next, navigate to the repository folder using:
+2. **Build and run with Docker**
+   ```bash
+   docker build -t lit_platform .
+   docker run -p 8501:8501 lit_platform
+   ```
 
-```shell
-cd Literature-Analytics-Platform
-```
+3. **Access the application**
+   ```
+   http://localhost:8501
+   ```
 
-### 2. Build the Docker image
+### Option 2: Local Development
 
-Use [Docker](https://www.docker.com/) or an online container deployment platform like [render.com](https://www.render.com) to run the dockerfile with the necessary prerequisites found in the [`requirements.txt`](requirements.txt).
-Run the following command from the root of the repo:
+1. **Clone and navigate to the repository**
+   ```bash
+   git clone https://github.com/Iska1999/Literature-Analytics-Platform.git
+   cd Literature-Analytics-Platform
+   ```
 
-```shell
-docker build -t lit_platform .
-```
-### 3. Run the Docker container
+2. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-```shell
-docker run -p 8501:8501 lit_platform
-```
+3. **Run data collection (optional - sample data provided)**
+   ```bash
+   python data_collection/metadata/metadata_collection.py
+   python data_collection/marketdata/marketdata_collection.py
+   ```
 
-Alternatively, if only interested in quickly testing the interactive web application without installing via Docker, you can check out this deployed version on [render.com](https://literature-analytics-platform.onrender.com/topic_trend_analysis). Kindly note that bootup time might take more than 50 seconds since it is deployed on a Free Tier Plan.
+4. **Process the data**
+   ```bash
+   python processing/metadata_processing.py
+   ```
 
-**NOTE:** the interactive web application uses an AWS EC2 server instance to fetch the processed features and perform the analysis in real-time. The IP address and credentials are currently hard-coded in this prototype, but to setup your own AWS EC2 server, kindly follow these [instructions](https://www.geeksforgeeks.org/amazon-ec2-creating-an-elastic-cloud-compute-instance/), and modify the hard-coded IP addresses in the [`pages/`](pages) scripts.
+5. **Launch the application**
+   ```bash
+   streamlit run main.py
+   ```
+
+## Usage
+
+1. **Select Analysis Type**: Choose from the sidebar:
+   - Field Trend VAR Analysis
+   - Field Trend BSTS Analysis
+   - Topic Trend VAR Analysis
+   - Topic Trend BSTS Analysis
+
+2. **Configure Parameters**:
+   - Feature Type: Raw, Monthly % Change, Rolling Average, or Growth Rate
+   - Scientific Field: Computer Science, Mathematics, Physics, Economics, Electrical Engineering & Systems Science, and Quantitative Biology
+   - Market Sector: Technology, Healthcare, Financials, Energy, or Industrials
+
+3. **Run Analysis**: Click the "🔍 Run Analysis" button to generate results
+
+4. **View Results**: Interactive charts and statistical outputs will be displayed
+
+## 🗄️ Database Schema
+
+The platform uses the following main tables:
+
+- `monthly_metadata`: Aggregated monthly metrics by scientific field
+- `rolling_metadata`: Rolling averages for smoothed trends (period = 6 months)
+- `monthly_topic`: LDA topic distributions by month
+- `rolling_topic`: Smoothed topic trends (period = 6 months)
+- `topic_words`: Top words for each LDA topic
+- `marketdata`: ETF prices and percentage changes
+
+## Future Enhancements
+
+- [ ] Collect more data
+- [ ] Analyze using LSTM and CNNs (assuming more data is obtained)
+- [ ] Expand to additional data sources (PubMed, Wiley etc.)
+- [ ] Implement user authentication and personalization
+- [ ] Implement rolling forecast
+- [ ] Fine-tune LDA and BSTS models
+- [ ] Implement A/B testing for model comparison
+
+## Memory Issues
+
+The arXiv metadata scraping and LDA model training can be time-consuming (around 17 hours) and memory-intensive. Consider reducing the dataset size or using a machine with more RAM.
 
 ## Disclaimer
 
 This project was undertaken as part of a technical assessment. As a result, several significant improvements (i.e., model finetuning, different forecasting methods, more data) are yet to be made. Do NOT use this platform as a financials or trading advisor.
+
+*Developed for the second round technical assessment @Ghamut*
