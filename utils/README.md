@@ -10,6 +10,7 @@ This folder contains the contains Python scripts with functionality that is reus
 - [`var_analysis_functions.py`](var_analysis_functions.py): Contains the functions to preprocess the features, fit the VAR model, and forecasts.
 - [`bsts_analysis_functions.py`](bsts_analysis_functions.py): Contains the function to fit the BSTS model using the Orbit module.
 - [`visualization_functions.py`](visualization_functions.py): Contains the functions to visualize the the trends, create a Granger Causality network, and produce IRF response plots.
+- [`db_mgr.py`](db_mgr.py): Contains the functions to connect to the AWS EC2 SQL server using the PyMySQL and SQLAlchemy modules.
 
 Note that these files are **NOT** meant to be run on their own.
 
