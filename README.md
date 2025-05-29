@@ -64,6 +64,8 @@ Follow the steps of Option 1 if interested in only seeing the interactive web ap
 
 ### Option 2: Local Development
 
+**WARNING:** metadata collection and LDA processing with data of a lookback of several years can take several hours up to a day.
+
 1. **Clone and navigate to the repository**
    ```bash
    git clone https://github.com/Iska1999/Literature-Analytics-Platform.git
@@ -145,7 +147,7 @@ The platform uses the following main tables:
 
 ## Memory Issues
 
-The arXiv metadata scraping and LDA model training can be time-consuming (around 17 hours) and memory-intensive. Consider reducing the dataset size or using a machine with more RAM.
+The arXiv metadata scraping and LDA model training can be time-consuming (around 17 hours fora lookback of 5 years) and memory-intensive. Consider reducing the dataset size or using a machine with more RAM.
 
 ## Disclaimer
 
