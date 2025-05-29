@@ -26,6 +26,8 @@ This platform investigates whether **scientific literature trends** can help **p
 
 - [`Dockerfile`](Dockerfile): The dockerfile to run the application on a docker platform.
 
+- [`Literature-Analytics-Platform-Presentation.pdf`](Literature-Analytics-Platform-Presentation.pdf): a presentation of the work provided in this repository.
+
 - [`requirements.txt`](requirements.txt): The prerequisites necessary to run the interactive web application and processing functions.
 
 
