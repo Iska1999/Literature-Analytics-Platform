@@ -47,7 +47,7 @@ Follow the steps of Option 1 if interested in only seeing the interactive web ap
    docker run -p 8501:8501 lit_platform
    ```
 
-3. **Access the application**
+3. **Access the application by pasting this URL in your browser**
    ```
    http://localhost:8501
    ```
