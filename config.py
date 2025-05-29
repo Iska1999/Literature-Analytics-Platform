@@ -6,12 +6,12 @@ load_dotenv()
 
 class Config:
     """Configuration class to manage environment variables and application settings"""
-    
+    import os
     # Database Configuration
-    DB_HOST = "3.148.234.227"
-    DB_USER = "test1"
-    DB_PASSWORD = "Test1234#"
-    DB_NAME = 'literature_analytics_platform'
+    DB_HOST = os.environ.get('DB_HOST')
+    DB_USER = os.environ.get('DB_USER')
+    DB_PASSWORD = os.environ.get('DB_PASSWORD')
+    DB_NAME = os.environ.get('DB_NAME', 'literature_analytics_platform')
     
     # Analysis Options
     MONTHLY_OPTIONS = ["Raw", "Monthly % Change", "Rolling Average", "Growth Rate"]
