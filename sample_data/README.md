@@ -2,7 +2,7 @@
 
 This folder contains sample processed data used to perform the analysis.
 
-- [`marketdata.csv`](marketdata.csv): Contains the scripts to scrape the meta- and marketdata, each in separate folders.
+- [`marketdata.csv`](marketdata.csv): Contains the marketdata scraped using Yahoo Finance.
 
 - [`monthly_growth.csv`](monthly_growth.csv): Contains the monthly average number of publications, number of unique authors, and diversity factor per field along with monthly percentage changes.
 
