@@ -49,6 +49,7 @@ Follow the steps of Option 1 if interested in only seeing the interactive web ap
    git clone https://github.com/Iska1999/Literature-Analytics-Platform.git
    cd Literature-Analytics-Platform
    ```
+**NOTE:** replace the placeholders in the .env file with your credentials.
 
 2. **Build and run with Docker**
    ```bash
