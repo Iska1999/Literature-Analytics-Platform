@@ -97,11 +97,11 @@ Follow the steps of Option 1 if interested in only seeing the interactive web ap
 
 ### Field Growth Metrics
 - Number of publications per field
-- Unique authors count
-- Diversity factor (cross-disciplinary collaboration)
+- Unique authors count per field
+- Diversity factor per field (cross-disciplinary collaboration)
 
 ### Topic Growth Metrics
-- Monthly averages of top 3 latent topics (topics were generated using Latent Dirichlet Allocation (LDA))
+- Monthly averages of top 3 latent topics generated using Latent Dirichlet Allocation (LDA)
 
 ### Market Analysis
 - ETF price movements for 5 major sectors
