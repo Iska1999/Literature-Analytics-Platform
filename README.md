@@ -24,7 +24,7 @@ This platform investigates whether **scientific literature trends** can help **p
   
 - [`config.py`](config.py): The Python file with configuration management information.
 
-- [`dockerfile`](dockerfile): The dockerfile to run the application on a docker platform.
+- [`Dockerfile`](Dockerfile): The dockerfile to run the application on a docker platform.
 
 - [`requirements.txt`](requirements.txt): The prerequisites necessary to run the interactive web application and processing functions.
 
